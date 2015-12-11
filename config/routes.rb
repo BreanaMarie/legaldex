@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'sessions/index'
+  get 'group/index'
+
+  get 'group/new'
+
+  get 'group/create'
 
   root to: "welcome#index"
 
@@ -8,5 +12,9 @@ Rails.application.routes.draw do
   
   resources :sessions
   delete '/logout' => 'sessions#destroy'
+
+  resources :practices
+
+  resources :groups
   
 end
