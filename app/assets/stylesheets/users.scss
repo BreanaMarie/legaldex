@@ -1,0 +1,35 @@
+//new user
+section {
+  width: 100%;
+  padding: 0 7%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  height: 100vh;
+  
+  &:nth-of-type(2n) {
+    background-color: #ffffff;
+  }
+}
+
+.intro {
+  height: 85vh;
+}
+
+.intro h2 {
+  font-family: 'Satisfy', cursive;
+
+}
+
+//user profile
+.profile_pic .btn{
+  float:right;
+}
+
+.profile_pic img{
+	width: 230px;
+	max-height: 240px;
+	border-radius: 8px;
+}
+
+
