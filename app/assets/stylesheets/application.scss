@@ -16,10 +16,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+	padding-top: 50px;
+}
 
 #nav {
-    background-color: #cef6c3;
+    background-color: #ffdf80;
+    border-color: transparent;
     color: black;
+    z-index: 900;
 }
 
 .navbar-nav > li > a {
@@ -29,4 +34,12 @@
 .logo {
 	font-size: 30px;
 	font-family: 'Bree', Serif;
+}
+
+.navbar-default .navbar-brand {
+	color: #000;
+}
+
+footer {
+	text-align: center;
 }

@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
     validates_length_of :first_name, :allow_blank => false
     validates_length_of :last_name, :allow_blank => false
 
+    has_many :groups
+    has_many :practices, :through => :groups
+
 
     user = User.new
     user.valid? 
@@ -18,6 +21,6 @@ class User < ActiveRecord::Base
 
     def self.confirm(params)
       @user = User.find_by({email: params[:email]})
-      @user.try(:authenticate, params[:password_digest])
+      @user.try(:authenticate, params[:password])
     end
 end

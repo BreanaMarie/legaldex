@@ -1,0 +1,22 @@
+<section>
+  <h1><%=@practice.title %></h1>
+  <!-- TODO add a decription to the practice group -->
+  <p></p>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>Current Members</h2>
+      <% @practice.groups.each do |user| %>
+        <% user = User.find(user.user_id) %>
+        <%= link_to user_path(user.id) do%>
+          <%= user.first_name%> <%=user.last_name %></br>
+        <%end%>
+      <% end %>
+    </div>
+    <div class="col-sm-6">
+      <h2> Current offices</h2>
+      <!-- TODO add all office locations -->
+    </div>
+    
+  </div>
+  
+</section>

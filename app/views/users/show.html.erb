@@ -1,13 +1,27 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-4 profile_pic">
-      <img src="<%= @user.image%>">
-      <br> 
-      <h4><%= "#{@user.first_name} #{@user.last_name}"  %> </h4>
-      <br>
-      <p><%= "Joined on #{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
-      <br>
+  <section class='intro'>
+    <div class="row">
+      <div class="col-sm-4 profile_pic">
+        <img src="<%= @user.image%>">
+        <br> 
+        <h4><%= "#{@user.first_name} #{@user.last_name}"  %> </h4>
+        <br>
+        <p><%= "Joined on #{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+        <br>
+        <% current_user.groups.each do |practice| %>
+          <% practice = Practice.find(practice.practice_id) %>
+          <%= link_to practice_path(practice.id) do%>
+            <%= practice.title %></br>
+          <%end%>
+        <% end %>
+        <%=link_to "Edit profile", edit_user_path, class:"btn" %>
+      </div>
+
+      <div class="col-sm-8">
+        
+      </div>
     </div>
-  </div>
+  </section>
 </div>
+  
 
