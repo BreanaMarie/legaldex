@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151213003903) do
+ActiveRecord::Schema.define(version: 20151213212719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cases", force: :cascade do |t|
+    t.string   "title"
+    t.string   "internal_number"
+    t.string   "case_number"
+    t.date     "filed"
+    t.string   "jurisdiction"
+    t.string   "law_type"
+    t.string   "case_status"
+    t.text     "summary"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "experts", force: :cascade do |t|
     t.string   "first_name"
@@ -41,6 +54,13 @@ ActiveRecord::Schema.define(version: 20151213003903) do
     t.string   "practice_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "handlings", force: :cascade do |t|
+    t.integer  "case_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "practices", force: :cascade do |t|

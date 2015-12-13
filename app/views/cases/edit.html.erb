@@ -1,0 +1,48 @@
+<section class='intro'>
+  <div class="col-sm-8 col-sm-offset-2 well">
+  <h1>Add a case to the database</h1>
+    <%= form_for @case do |f| %>
+      <ul>
+        <% if @case.errors.any? %> 
+          <p>
+            <%= pluralize(@case.errors.count, "error") %> prevented the form from being saved:
+          </p>
+          <% @case.errors.full_messages.each do |message| %> 
+          <li><%= message %></li>
+          <% end %> 
+        <% end %> 
+      </ul>
+    <%= f.label :title %> 
+    <%= f.text_field :title, placeholder: "John Doe v. Jane Doe", class:'form-control', autofocus: true %> 
+    <br>
+    <%= f.label :case_number %> 
+    <%= f.text_field :case_number, placeholder: "case number assigned by the court", class:'form-control' %> 
+    <br>  
+    <%= f.label "Original Complaint filed on: " %> 
+    <%= f.date_field :filed %> 
+    <br> 
+    <%= f.label :internal_number %> 
+    <%= f.text_field :internal_number, placeholder: "firm billing number", class:'form-control' %> 
+    <br>
+    <%= f.label :law_type %> 
+    <%= f.text_field :law_type, placeholder: "Type of Law", class:'form-control' %> 
+    <br> 
+    <%= f.label :case_status %> 
+    <br>
+    <p>Active  <%= f.radio_button :case_status, "active", :value => "active" %> </p>
+    <p>Arbitration   <%= f.radio_button :case_status, "arbitration", :value => "arbitration" %> </p>
+    <p>Appeal   <%= f.radio_button :case_status, "appeal", :value => "appeal" %> </p>
+    <p>Contract   <%= f.radio_button :case_status, "contract", :value => "contract" %> </p>
+    <p>Pro Bono   <%= f.radio_button :case_status, "pro bono", :value => "pro bono" %></p> 
+    <p>Other   <%= f.radio_button :case_status, "other", :value => "other" %> </p>
+    <p>Settled  <%= f.radio_button :case_status, "settled", :value => "settled" %> </p>
+    <br>  
+    <%= f.label :summary %> 
+    <%= f.text_area :summary, rows: 20, placeholder: "case summary", class:'form-control' %>
+    <div class="text-right">
+      <%= f.submit "Update Case", class: 'btn btn-primary' %> 
+    </div>
+    <% end %> 
+  </div>
+</section>
+

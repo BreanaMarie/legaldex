@@ -1,0 +1,49 @@
+<div class="container">
+  <section class='intro'>
+    <div class="row banner">
+      <div id="name_ribbon">
+         <h1><%= "#{@case.title}" %> </h1>
+      </div>
+      
+    </div>
+    <div class="row content">
+      <div class="col-sm-4 ">
+
+        <div>
+          <h4><%= @case.law_type  %> </h4>
+          <h5>Filed on: <%= @case.filed %> </h5>
+        </div>
+       <!--  handling attorneys -->
+        <div>
+          <% @case.handling.each do |user| %>
+            <% user = User.find(user.user_id) %>
+            <%= link_to user_path(user.id) do%>
+              <%= user.full_name %>
+            <%end%>
+          <% end %>
+        </div>
+        <div>
+          <p>
+            <%= @case.case_status %>
+            <br>
+            <%= @case.case_number %>
+          </p>
+          <br>
+          <%= @case.internal_number %>
+        </div>
+       
+        <br>
+        <p><%= "Last updated: #{@case.updated_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+        <%=link_to "Edit case Information", edit_case_path, class:"btn" %>
+      </div>
+
+      <div class="col-sm-8">
+        <p><%= @case.summary %> </p>
+
+        
+      </div>
+    </div>
+  </section>
+</div>
+  
+
