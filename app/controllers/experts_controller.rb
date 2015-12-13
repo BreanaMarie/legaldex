@@ -16,7 +16,7 @@ class ExpertsController < ApplicationController
   end
 
   def create
-    expert_params = params.require(:expert).permit(:first_name, :last_name, :bio)
+    expert_params = params.require(:expert).permit(:first_name, :last_name, :middle_name, :company, :title, :time_in_field, :email, :address, :phone, :phone2, :city, :state, :zipcode, :bio, :image)
     @expert = Expert.new(expert_params)
       if @expert.save
         redirect_to expert_path(@expert)
@@ -26,13 +26,19 @@ class ExpertsController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @expert = Expert.find(params[:id])
     render :edit
   end
 
   def update
+    @expert = Expert.find(params[:id])
+    updated_attributes = params.require(:expert).permit(:first_name, :last_name, :middle_name, :company, :title, :time_in_field, :email, :address, :phone, :phone2, :city, :state, :zipcode, :bio, :image)
+    @expert.update_attributes(updated_attributes)
+    redirect_to @expert
   end
 
-  def delet
+  def destroy
+    @expert = Expert.find(@expert)
+    redirect_to @user
   end
 end
