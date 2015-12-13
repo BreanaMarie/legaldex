@@ -1,0 +1,41 @@
+<div class="container">
+  <section class='intro'>
+    <div class="row banner">
+      <div id="name_ribbon">
+        <div class="profile_pic">
+          <img src="<%= @expert.image%>">  
+        </div>
+         <h1><%= "#{@expert.first_name} #{@expert.last_name}"  %> </h1>
+      </div>
+      
+    </div>
+    <div class="row content">
+      <div class="col-sm-4 ">
+
+        <div>
+        <h3>Expert</h3>
+        <h4>
+          <%= "#{@expert.first_name} #{@expert.last_name}"  %> 
+          <br>
+          <%= @expert.company %>
+        </h4>
+        <br>
+        <h3><%=@expert.title%></h3>
+        </div>
+        <br> 
+       
+        <br>
+        <p><%= "Last updated: #{@expert.updated_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+        <%=link_to "Edit profile", edit_expert_path, class:"btn" %>
+      </div>
+
+      <div class="col-sm-8">
+        <p><%= @expert.bio %> </p>
+
+        
+      </div>
+    </div>
+  </section>
+</div>
+  
+

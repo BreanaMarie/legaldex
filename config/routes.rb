@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'group/index'
-
-  get 'group/new'
-
-  get 'group/create'
-
   root to: "welcome#index"
 
   resources :users
@@ -14,7 +8,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :practices
-
   resources :groups
+  resources :experts
   
 end
