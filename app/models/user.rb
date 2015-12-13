@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     user.errors[:email]
     user.errors.full_messages
 
+    def full_name 
+      "#{first_name} #{last_name}"
+    end
+
     user.errors.clear
     user.errors.empty? 
     def a_method_used_for_validation_purposes

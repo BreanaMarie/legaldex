@@ -1,0 +1,29 @@
+#name_ribbon{
+	background-color: #e6b700;
+	position: absolute;
+	height: 150px;
+	width: 90%;
+	float: left;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6b700+0,ffffff+79,ffffff+100,f7fbfc+100 */
+	background: rgb(230,183,0); /* Old browsers */
+	background: -moz-linear-gradient(left,  rgba(230,183,0,1) 0%, rgba(255,255,255,1) 79%, rgba(255,255,255,1) 100%, rgba(247,251,252,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  rgba(230,183,0,1) 0%,rgba(255,255,255,1) 79%,rgba(255,255,255,1) 100%,rgba(247,251,252,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  rgba(230,183,0,1) 0%,rgba(255,255,255,1) 79%,rgba(255,255,255,1) 100%,rgba(247,251,252,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6b700', endColorstr='#f7fbfc',GradientType=1 ); /* IE6-9 */
+
+	
+}
+
+#name_ribbon h1{
+	margin-left: 15% ;
+	font-size: 60px;
+	margin-top: 5%;
+}
+
+.banner{
+	height: 150px;
+}
+
+.content {
+	clear: both;
+}

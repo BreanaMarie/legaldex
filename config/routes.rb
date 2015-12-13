@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root to: "welcome#index"
 
   resources :users
@@ -10,5 +11,7 @@ Rails.application.routes.draw do
   resources :practices
   resources :groups
   resources :experts
+  resources :cases
+  resources :handlings
   
 end
