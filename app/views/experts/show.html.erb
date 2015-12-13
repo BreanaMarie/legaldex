@@ -21,8 +21,18 @@
         </h4>
         <br>
         <h3><%=@expert.title%></h3>
+        <p>Time in the field: <%="#{@expert.experience}" %></p>
         </div>
-        <br> 
+        <div>
+          <h4>Contact Information:</h4>
+          <p>
+            <%= @expert.address %>
+            <br>
+            <%= @expert.city %> <%= @expert.state %> <%= @expert.zipcode %>
+          </p>
+          <br>
+          <%= @expert.email %>
+        </div>
        
         <br>
         <p><%= "Last updated: #{@expert.updated_at.to_date.to_formatted_s(:long_ordinal)}" %></p>

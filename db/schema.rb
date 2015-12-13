@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20151213003903) do
     t.string   "middle_name"
     t.string   "company"
     t.string   "title"
-    t.string   "time_in_field"
+    t.date     "time_in_field"
     t.string   "email"
     t.string   "address"
     t.string   "phone"
