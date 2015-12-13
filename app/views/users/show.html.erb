@@ -8,12 +8,13 @@
         <br>
         <p><%= "Joined on #{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
         <br>
-        <% current_user.groups.each do |practice| %>
+        <% @user.groups.each do |practice| %>
           <% practice = Practice.find(practice.practice_id) %>
           <%= link_to practice_path(practice.id) do%>
-            <%= practice.title %></br>
+            <%= practice.title %>
           <%end%>
         <% end %>
+        <br>
         <%=link_to "Edit profile", edit_user_path, class:"btn" %>
       </div>
 
