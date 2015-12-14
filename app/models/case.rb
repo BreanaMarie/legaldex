@@ -2,7 +2,6 @@ class Case < ActiveRecord::Base
   validates :internal_number, uniqueness: true
   validates_length_of :title, :allow_blank => false
 
-  belongs_to :jurisdiction
   has_many :handling
   has_many :users, :through => :handling
   has_many :clients
