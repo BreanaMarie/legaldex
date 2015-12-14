@@ -1,0 +1,61 @@
+<section class='intro'>
+  <div class="col-sm-8 col-sm-offset-2 well">
+  <h1>Add a company to the database</h1>
+    <%= form_for @company do |f| %>
+      <ul>
+        <% if @company.errors.any? %> 
+          <p>
+            <%= pluralize(@company.errors.count, "error") %> prevented the form from being saved:
+          </p>
+          <% @company.errors.full_messages.each do |message| %> 
+          <li><%= message %></li>
+          <% end %> 
+        <% end %> 
+      </ul>
+    <%= f.label :name %> 
+    <%= f.text_field :name, placeholder: "ABC Inc.", class:'form-control', autofocus: true %> 
+    <br>
+    <%= f.label :industry %> 
+    <%= f.text_field :industry, placeholder: "telecomunications", class:'form-control' %> 
+    <br>  
+    <%= f.label :contact1 %> 
+    <%= f.text_field :contact1, placeholder: "John Doe president", class:'form-control' %> 
+    <br>
+    <%= f.label :contact2%> 
+    <%= f.text_field :contact2, placeholder: "Jane Doe director of sales", class:'form-control' %> 
+    <br> 
+    <%= f.label :role %> 
+    <%= f.text_field :role, placeholder: "network provider", class:'form-control' %>
+    <br>
+    <%= f.label :image %> 
+    <%= f.text_field :image, placeholder: "url to company logo", class:'form-control' %>
+    <br>
+    <%= f.label :address %> 
+    <%= f.text_field :address, placeholder: "Address", class:'form-control' %> 
+    <br> 
+    <%= f.label :city %> 
+    <%= f.text_field :city, placeholder: "City", class:'form-control' %> 
+    <br> 
+    <%= f.label :state %> 
+    <%= f.text_field :state, placeholder: "state", class:'form-control' %> 
+    <br> 
+    <%= f.label :zipcode %> 
+    <%= f.text_field :zipcode, placeholder: "zipcode", class:'form-control' %> 
+    <br> 
+    <%= f.label :phone %> 
+    <%= f.text_field :phone, placeholder: "Phone #", class:'form-control' %> 
+    <br> 
+    <%= f.label :fax %> 
+    <%= f.text_field :fax, placeholder: "fax #", class:'form-control' %> 
+    <br> 
+    <%= f.label :email %> 
+    <%= f.text_field :email, placeholder: "email", class:'form-control' %>
+    <br>
+    <%= f.label :profile %> 
+    <%= f.text_area :profile, rows: 10, placeholder: "company profile description", class:'form-control' %>
+    <div class="text-right">
+      <%= f.submit "Update Company", class: 'btn btn-primary' %> 
+    </div>
+    <% end %> 
+  </div>
+</section>
