@@ -12,6 +12,7 @@
           <% practice = Practice.find(practice.practice_id) %>
           <%= link_to practice_path(practice.id) do%>
             <%= practice.title %>
+       
           <%end%>
         <% end %>
         <br>

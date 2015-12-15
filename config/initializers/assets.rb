@@ -12,9 +12,11 @@ Rails.application.config.assets.precompile += %w(
   cases.css
   companies.css
   experts.css
+  firms.css
   groups.css
   handlings.css
   practices.css
+  representations.css
   sessions.css
   users.css
   welcome.css 

@@ -1,0 +1,67 @@
+<div class="container">
+  <section class='intro'>
+    <div class="row banner">
+      <div id="name_ribbon">
+         <h1><%= "#{@firm.name}" %> </h1>
+      </div>
+      
+    </div>
+    <div class="row content">
+      <div class="col-sm-4 ">
+
+        <div>
+          <img class= "img-responsive" src="<%= @firm.image%>"> 
+        </div>
+        <div>
+          <h4>Contact Information:</h4>
+          <p>
+            <%= @firm.address %>
+            <br>
+            <%= @firm.city %> <%= @firm.state %> <%= @firm.zipcode %>
+          </p>
+        </div>
+       
+        <br>
+        <p><%= "Last updated: #{@firm.updated_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+        <%=link_to "Edit Firm Information", edit_firm_path, class:"btn" %>
+      </div>
+
+      <div class="col-sm-8">
+        <p><%= @firm.profile %> </p>
+
+        
+      </div>
+    </div>
+  </section>
+  <section>
+    <table style="width:100%">
+      <tr>
+        <td>Case</td>
+        <td>Party</td> 
+        <td>Role</td>
+      </tr>
+      <% @firm.representations.each do |r| %>
+      <tr>
+        <td>
+          <% case = Case.find(r.case_id) %>
+          <%= link_to firm_path(case.id) do%>
+          <p><%=case.name %></p>
+          <%end%>
+        </td> 
+        <td>      
+          <% company = Company.find(r.company_id) %>
+          <%= link_to company_path(company.id) do%>
+          <%= company.name %>
+          <%end%>
+        </td>
+        <td>
+          <p><%= r.role %></p>
+        </td>
+      </tr>
+      
+    <% end %>
+    </table>
+  </section>
+</div>
+  
+

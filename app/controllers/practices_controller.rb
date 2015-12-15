@@ -16,7 +16,15 @@ class PracticesController < ApplicationController
 
   def show
     @practice = Practice.find_by_id(params[:id])
+    @current_user = current_user
     @users = User.all
     @groups= Group.all
+    @group= Group.new
+
   end
+
+  def destroy
+
+  end
+
 end
