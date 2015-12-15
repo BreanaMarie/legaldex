@@ -44,6 +44,40 @@
       </div>
     </div>
   </section>
+  <section>
+    <table style="width:100%">
+      <tr>
+        <td>Party</td>
+        <td>Firm Representation</td> 
+        <td>Attorney</td>
+        <td>Role</td>
+      </tr>
+      <% @case.representations.each do |r| %>
+
+      <tr>
+        <td>      
+          <% company = Company.find(r.company_id) %>
+          <%= link_to company_path(company.id) do%>
+          <%= company.name %>
+          <%end%>
+        </td>
+        <td>
+          <% firm = Firm.find(r.firm_id) %>
+          <%= link_to firm_path(firm.id) do%>
+          <p><%=firm.name %></p>
+          <%end%>
+        </td> 
+        <td>
+          <p><%= r.attorney %></p>
+        </td>
+        <td>
+          <p><%= r.role %></p>
+        </td>
+      </tr>
+      
+    <% end %>
+    </table>
+  </section>
 </div>
   
 

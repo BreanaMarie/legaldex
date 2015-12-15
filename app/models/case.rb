@@ -4,6 +4,10 @@ class Case < ActiveRecord::Base
 
   has_many :handling
   has_many :users, :through => :handling
-  has_many :clients
-  has_many :parties
+  has_many :representations
+  has_many :companies, :through => :representations
+  has_many :firms, :through => :representations
+  has_many :used_experts
+  has_many :experts, :through => :used_experts
+  
 end

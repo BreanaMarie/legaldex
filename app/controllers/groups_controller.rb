@@ -3,6 +3,10 @@ class GroupsController < ApplicationController
 
   end
 
+  def show
+    @group=Group.find(params[:id])
+  end
+
   def new
     @group = Group.new
     @users = User.all
@@ -12,7 +16,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group_params = params.require(:group).permit(:practice_id)
+    group_params = params.require(:group).permit(:practice_id, :user_id)
     @group = Group.new(group_params)
     @current_user = current_user
     @users = User.all
@@ -24,4 +28,12 @@ class GroupsController < ApplicationController
        render :new
      end
   end
+
+  def destroy
+    @current_user = current_user
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to @current_user
+  end
+
 end

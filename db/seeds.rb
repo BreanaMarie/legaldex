@@ -5,3 +5,72 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'ffaker'
+
+10.times do 
+  user_params = Hash.new
+  user_params[:first_name] = FFaker::Name.first_name
+  user_params[:last_name] = FFaker::Name.last_name
+  user_params[:password]  = "12345"
+  user_params[:email] = FFaker::Internet.email
+  user_params[:image] = FFaker::Avatar.image
+  
+  # save the user
+  new_user = User.create(user_params)
+  
+end
+
+20.times do
+  new_company = Company.new
+  new_company.name = FFaker::Company.name
+  new_company.industry = FFaker::Education.major
+  new_company.contact1 = FFaker::Name.name
+  new_company.contact2 = FFaker::Name.name
+  new_company.role = FFaker::Company.catch_phrase
+  new_company.profile = FFaker::HipsterIpsum.paragraph(3)
+  new_company.address = FFaker::Address.street_address
+  new_company.city = FFaker::Address.city
+  new_company.phone = FFaker::PhoneNumber.short_phone_number
+  new_company.fax = FFaker::PhoneNumber.short_phone_number
+  new_company.email = FFaker::Internet.free_email
+  new_company.save
+end
+
+5.times do
+  new_case = Case.new
+  new_case.title = FFaker::Internet.domain_word
+  new_case.internal_number = FFaker::Product.model
+  new_case.case_number = FFaker::Geolocation.lat
+  new_case.jurisdiction = FFaker::Education.school_name
+  new_case.law_type = FFaker::Education.major
+  new_case.summary = FFaker::HipsterIpsum.paragraph(3)
+  new_case.save
+end
+
+10.times do
+  new_expert = Expert.new
+  new_expert.first_name = FFaker::Name.first_name
+  new_expert.last_name = FFaker::Name.last_name
+  new_expert.middle_name = FFaker::Name.first_name
+  new_expert.company = FFaker::Job.title
+  new_expert.email = FFaker::Internet.free_email
+  new_expert.address = FFaker::Address.street_address
+  new_expert.city = FFaker::Address.city
+  new_expert.phone = FFaker::PhoneNumber.short_phone_number
+  new_expert.phone2 = FFaker::PhoneNumber.short_phone_number
+  new_expert.bio = FFaker::HipsterIpsum.paragraph(2)
+  new_expert.save
+
+end
+
+15.times do
+  new_firm = Firm.new
+  new_firm.name = FFaker::Company.name
+  new_firm.profile = FFaker::HipsterIpsum.paragraph(3)
+  new_firm.address = FFaker::Address.street_address
+  new_firm.city = FFaker::Address.city
+  new_firm.phone = FFaker::PhoneNumber.short_phone_number
+  new_firm.fax = FFaker::PhoneNumber.short_phone_number
+  new_firm.save
+end
+

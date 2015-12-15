@@ -5,6 +5,7 @@ class CasesController < ApplicationController
   def show
     @case = Case.find_by_id(params[:id])
     @handlings = Handling.all
+    @representations = Representation.all
     render :show
   end
 
