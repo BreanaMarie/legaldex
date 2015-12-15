@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214000711) do
+ActiveRecord::Schema.define(version: 20151214222558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,9 +68,23 @@ ActiveRecord::Schema.define(version: 20151214000711) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "firms", force: :cascade do |t|
+    t.string   "name"
+    t.text     "profile"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "groups", force: :cascade do |t|
-    t.string   "user_id"
-    t.string   "practice_id"
+    t.integer  "user_id"
+    t.integer  "practice_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -84,6 +98,23 @@ ActiveRecord::Schema.define(version: 20151214000711) do
 
   create_table "practices", force: :cascade do |t|
     t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "representations", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "case_id"
+    t.integer  "firm_id"
+    t.string   "attorney"
+    t.string   "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "used_experts", force: :cascade do |t|
+    t.integer  "case_id"
+    t.integer  "expert_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

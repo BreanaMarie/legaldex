@@ -35,6 +35,10 @@ gem "twitter-bootstrap-rails"
 # Ffaker 
 gem 'ffaker'
 
+#hosting
+gem 'execjs'
+gem 'therubyracer'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

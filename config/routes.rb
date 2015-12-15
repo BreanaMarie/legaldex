@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   resources :cases
   resources :handlings
   resources :companies
+  resources :representations
+  resources :firms
   
 end

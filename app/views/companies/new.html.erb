@@ -1,4 +1,4 @@
-<section class='intro'>
+<section class='intro new'>
   <div class="col-sm-8 col-sm-offset-2 well">
   <h1>Add a company to the database</h1>
     <%= form_for @company do |f| %>
@@ -54,7 +54,7 @@
     <%= f.label :profile %> 
     <%= f.text_area :profile, rows: 10, placeholder: "company profile description", class:'form-control' %>
     <div class="text-right">
-      <%= f.submit "Create Company", class: 'btn btn-primary' %> 
+      <%= f.submit "Create Company", class:'btn btn-success pull-right' %> 
     </div>
     <% end %> 
   </div>

@@ -1,10 +1,11 @@
-<section class='intro'>
+<section class='intro new'>
   <div class="col-sm-8 col-sm-offset-2 well">
   <h2>Add a Practice:</h2>
+  <p>This should be a division of your law firm that represents a specific type of law.  Examples include: Entertainment, Construction, Employment etc. </p>
     <%= form_for @practice do |f| %>
 
         <%= f.text_field :title, class:"form-control", placeholder:"title of group" %> 
-        <%= f.submit "Add Practice", class:"btn close pull-right" %>
+        <%= f.submit "Add Practice", class:"btn btn-success pull-right" %>
 
     <% end %>
   </div>

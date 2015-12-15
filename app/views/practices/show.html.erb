@@ -8,10 +8,35 @@
       <% @practice.groups.each do |user| %>
         <% user = User.find(user.user_id) %>
         <%= link_to user_path(user.id) do%>
-          <%= user.first_name%> <%=user.last_name %></br>
+          <%= user.full_name %></br>
         <%end%>
       <% end %>
+      <div>
+        <% for group in @current_user.groups.where(practice_id: @practice) %>
+          <h5>You are already a member of this group</h5>
+          <%= link_to group, :method => :delete do %>
+            <i class="glyphicon glyphicon-remove"></i>
+          <% end %>
+        <%end%>
+        <br>
+        <% for group in Group.where(practice_id: @practice) %>
+        <%= group.user_id %>
+        <%= @current_user.id %>
+        <%= group.user_id == @current_user.id %>
+          <% if group.user_id.to_s == @current_user.id.to_s %>
+            <p> this is true <p>
+            <%= form_for @group do |f| %>
+              <%= f.hidden_field :practice_id, :value => @practice.id%>
+              <%= f.submit "Become Member", class:"btn btn-success pull-left" %>
+            <% end %>
+          <% else %>
+            <p>No button here <p>
+          <% end %>
+        <% end %>
+      </div>
+
     </div>
+
     <div class="col-sm-6">
       <h2> Current offices</h2>
       <!-- TODO add all office locations -->
