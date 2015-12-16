@@ -8,6 +8,9 @@
       <%= f.label "All Firms" %> <br>
         <%= f.collection_select :firm_id, @firms, :id, :name, include_blank: true %>
         <br>
+        <%= f.label "Attorney Representing the party if known" %> <br>
+          <%= f.text_field :attorney, placeholder: "Jane Doe" %>
+          <br>
       <%= f.label "all cases" %> <br>  
         <%= f.collection_select :lawcase_id, @lawcases, :id, :title, include_blank: true %>
         <br>
