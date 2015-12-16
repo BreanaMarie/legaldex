@@ -37,15 +37,16 @@
     <table style="width:100%">
       <tr>
         <td>Case</td>
-        <td>Party</td> 
+        <td>Represented/Client</td> 
         <td>Role</td>
+        <td>Expert Retained</td>
       </tr>
       <% @firm.representations.each do |r| %>
       <tr>
         <td>
           <% lawcase = Lawcase.find(r.lawcase_id) %>
           <%= link_to firm_path(lawcase.id) do%>
-          <p><%=lawcase.name %></p>
+          <p><%=lawcase.title %></p>
           <%end%>
         </td> 
         <td>      
@@ -56,6 +57,9 @@
         </td>
         <td>
           <p><%= r.role %></p>
+        </td>
+        <td>
+          <!-- To be added -->
         </td>
       </tr>
       

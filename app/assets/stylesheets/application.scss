@@ -19,24 +19,26 @@
 //all pages
 body {
 	padding-top: 50px;
+  font-family: 'Playfair Display', serif;
 }
 
 section {
   width: 100%;
   padding: 0 7%;
   display: table;
-  margin: 0;
+  margin-top: 2%;
   max-width: none;
   height: 100vh;
-  
+
   &:nth-of-type(2n) {
     background-color: #ffffff;
+    margin-left: 1.5%;
   }
 }
 
 .intro {
   height: 85vh;
-  padding-top: 10px;
+  padding-top: 4%;
 }
 
 //top navigation
@@ -65,6 +67,7 @@ section {
 #sideNav{
   background-color: #ffdf80;
   border-color: transparent;
+  z-index: 1000;
   // height: 100vh;
 }
 
@@ -91,6 +94,7 @@ section {
   background-color: #ffdf80;
   width: 18%;
   padding-left: 2%;
+  padding-top: 2%;
 }
 
 //footer

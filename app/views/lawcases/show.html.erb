@@ -14,6 +14,7 @@
           <h5>
             Filed on: <%= @lawcase.filed %> 
             <br>
+            <br>
             Assigned to: <br> 
               <% @lawcase.assignments.each do |practice| %>
                 <% practice = Practice.find(practice.practice_id) %>
@@ -26,6 +27,7 @@
         </div>
        <!--  handling attorneys -->
         <div>
+        <h5>Currently handling the case:</h5>
           <% @lawcase.handling.each do |user| %>
             <% user = User.find(user.user_id) %>
             <%= link_to user_path(user.id) do%>
@@ -33,13 +35,16 @@
             <%end%>
           <% end %>
         </div>
+        <br>
         <div>
-          <p>
+          <p> <strong>case status:</strong>
             <%= @lawcase.case_status %>
             <br>
+            <strong>cout case number:</strong>
             <%= @lawcase.case_number %>
           </p>
           <br>
+          <strong>firm internal billing number:</strong>
           <%= @lawcase.internal_number %>
         </div>
        
@@ -49,6 +54,7 @@
       </div>
 
       <div class="col-sm-8">
+      <h5>Case Summary</h5>
         <p><%= @lawcase.summary %> </p>
 
         
@@ -56,8 +62,10 @@
     </div>
   </section>
   <section>
+  <h3>List of Parties involved and their representations</h3>
     <table style="width:100%">
       <tr>
+        <td></td>
         <td>Party</td>
         <td>Firm Representation</td> 
         <td>Attorney</td>
@@ -66,6 +74,12 @@
       <% @lawcase.representations.each do |r| %>
 
       <tr>
+        <td>
+          <% company = Company.find(r.company_id) %>
+          <%= link_to company_path(company.id) do%>
+          <img src="<%= company.image %>" >
+          <%end%>
+        </td>
         <td>      
           <% company = Company.find(r.company_id) %>
           <%= link_to company_path(company.id) do%>

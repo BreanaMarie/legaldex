@@ -36,3 +36,12 @@
   </div>
   
 </section>
+<section>
+  <h4>Cases being handled by the <%= "#{@practice.title}"%> group:</h4>
+    <% @practice.assignments.each do |lawcase| %>
+      <% lawcase = Lawcase.find(lawcase.lawcase_id) %>
+      <%= link_to lawcase_path(lawcase.id) do%>
+        <%= lawcase.title %> </br>
+      <%end%>
+    <% end %>
+</section>

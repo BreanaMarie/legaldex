@@ -6,6 +6,8 @@ class FirmsController < ApplicationController
 
   def show
     @firm = Firm.find(params[:id])
+    @representations = Representation.all
+    @lawcases = Lawcase.all
     render :show
   end
 
