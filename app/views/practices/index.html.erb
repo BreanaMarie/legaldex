@@ -1,0 +1,11 @@
+<section class="intro">
+  <% @practices.each do |practice|%>
+    <div>
+      <h2>
+        <%= link_to "#{practice.title}", practice_path(practice.id)%>  
+      </h2>
+      
+    </div>
+  <%end%>
+  
+</section>

@@ -16,6 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//all pages
 body {
 	padding-top: 50px;
 }
@@ -38,6 +39,7 @@ section {
   padding-top: 10px;
 }
 
+//top navigation
 #nav {
     background-color: #ffdf80;
     border-color: transparent;
@@ -59,6 +61,43 @@ section {
 	color: #000;
 }
 
+//side navigation
+#sideNav{
+  background-color: #ffdf80;
+  border-color: transparent;
+  // height: 100vh;
+}
+
+.siderow{
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#side {
+  background-color: #ffdf80;
+  border-color: transparent;
+  height: 100vh;
+  overflow: hidden;
+  padding-left: 2%;
+  padding-top: 3%;
+  position: fixed;
+}
+
+#sidetext{
+  position: fixed;
+  height: 100vh;
+  background-color: #ffdf80;
+  width: 18%;
+  padding-left: 2%;
+}
+
+//footer
 footer {
 	text-align: center;
+  background-color: white;
+  clear: both;
 }
+
+

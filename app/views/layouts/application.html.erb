@@ -12,7 +12,14 @@
 </head>
 <body>
 <%=render partial: "layouts/nav"%>
-<%= yield %>
+<div class="row siderow">
+  <div id="sideNav" class="col-xs-2 siderow">
+    <%=render partial: "layouts/sidenav"%>
+  </div>
+  <div class="col-xs-10 siderow">
+    <%= yield %> 
+  </div>
+</div>
 
 </body>
 <footer>Breana Marie Eads</footer>

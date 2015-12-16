@@ -6,7 +6,10 @@ class Expert < ActiveRecord::Base
   has_many :cases, :through => :used_experts
 
   def experience 
-    days = Date.today - self.time_in_field
-    years = days.to_i/ 365
+    if time_in_field != nil
+      days = Date.today - self.time_in_field
+      years = days.to_i/ 365
+
+    end
   end
 end
