@@ -43,9 +43,9 @@
       <% @firm.representations.each do |r| %>
       <tr>
         <td>
-          <% case = Case.find(r.case_id) %>
-          <%= link_to firm_path(case.id) do%>
-          <p><%=case.name %></p>
+          <% lawcase = Lawcase.find(r.lawcase_id) %>
+          <%= link_to firm_path(lawcase.id) do%>
+          <p><%=lawcase.name %></p>
           <%end%>
         </td> 
         <td>      

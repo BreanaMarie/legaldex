@@ -8,7 +8,7 @@
       <br>
       <%= f.label "all cases" %> 
       <br>
-      <%= f.collection_select :case_id, @cases, :id, :title, include_blank: true %>
+      <%= f.collection_select :lawcase_id, @lawcases, :id, :title, include_blank: true %>
     <%= f.submit "Add to Case", class:"btn close pull-right" %>
 
     <% end %>

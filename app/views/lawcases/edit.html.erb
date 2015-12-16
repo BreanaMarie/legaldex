@@ -1,13 +1,13 @@
 <section class='intro'>
   <div class="col-sm-8 col-sm-offset-2 well">
   <h1>Add a case to the database</h1>
-    <%= form_for @case do |f| %>
+    <%= form_for @lawcase do |f| %>
       <ul>
-        <% if @case.errors.any? %> 
+        <% if @lawcase.errors.any? %> 
           <p>
-            <%= pluralize(@case.errors.count, "error") %> prevented the form from being saved:
+            <%= pluralize(@lawcase.errors.count, "error") %> prevented the form from being saved:
           </p>
-          <% @case.errors.full_messages.each do |message| %> 
+          <% @lawcase.errors.full_messages.each do |message| %> 
           <li><%= message %></li>
           <% end %> 
         <% end %> 
@@ -40,7 +40,7 @@
     <%= f.label :summary %> 
     <%= f.text_area :summary, rows: 20, placeholder: "case summary", class:'form-control' %>
     <div class="text-right">
-      <%= f.submit "Create Case", class: 'btn btn-primary' %> 
+      <%= f.submit "Update Case", class: 'btn btn-primary' %> 
     </div>
     <% end %> 
   </div>

@@ -1,4 +1,4 @@
-class Case < ActiveRecord::Base
+class Lawcase < ActiveRecord::Base
   validates :internal_number, uniqueness: true
   validates_length_of :title, :allow_blank => false
 
