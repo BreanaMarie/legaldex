@@ -6,6 +6,8 @@ class LawcasesController < ApplicationController
 
   def show
     @lawcase = Lawcase.find_by_id(params[:id])
+    @assignments = Assignment.all
+    @practices = Practice.all
     @handlings = Handling.all
     @representations = Representation.all
     render :show

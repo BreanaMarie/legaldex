@@ -1,0 +1,14 @@
+<section class='intro new'>
+  <div class="col-sm-8 col-sm-offset-2 well">
+  <h2>Assign a Case to a Practice Group:</h2>
+    <%= form_for @assignment do |f| %>
+      <%= f.label "All Practice Groups" %> <br>
+        <%= f.collection_select :practice_id, @practices, :id, :title, include_blank: true %>
+      <br>
+      <%= f.label "All Cases" %> <br>
+          <%= f.collection_select :lawcase_id, @lawcases, :id, :title, include_blank: true %>
+      <%= f.submit "Add Assignment", class:"btn btn-success pull-right" %>
+
+    <% end %>
+  </div>
+</section>
