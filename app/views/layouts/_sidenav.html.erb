@@ -1,0 +1,27 @@
+<div id="side col-xs-2">
+  <div id="sidetext">
+    <% if session[:user_id] === nil %>
+      <h4>you must be a member to participate</h4>
+    <%else %>
+      <p>Create</p>
+      <%= link_to "New Expert", new_expert_path%>
+      <br>
+      <%= link_to "New Firm", new_firm_path%>
+      <br>
+      <%= link_to "New Company", new_company_path%>
+      <br>
+      <%= link_to "New Case", new_case_path%>
+      <br>
+      <%= link_to "New Practice", new_practice_path%>
+      <br>
+      <br>
+      <p>ViewAll</p>
+      <%= link_to "Practice Groups", practices_path%>
+      <br>
+      <%= link_to "Cases Groups", cases_path%>
+      <br>
+     
+    <%end %>
+  </div>
+
+</div>
