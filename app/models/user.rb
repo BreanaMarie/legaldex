@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     has_many :groups
     has_many :practices, :through => :groups
     has_many :handlings
-    has_many :cases, :through => :handlings
+    has_many :lawcases, :through => :handlings
 
 
     user = User.new

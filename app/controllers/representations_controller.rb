@@ -12,7 +12,7 @@ class RepresentationsController < ApplicationController
   end
 
   def create
-    representation_params = params.require(:representation).permit(:company_id, :lawcase_id, :firm_id, :atorney, :role)
+    representation_params = params.require(:representation).permit(:company_id, :lawcase_id, :firm_id, :attorney, :role)
     @representation = Representation.create(representation_params)
     @lawcases = Lawcase.all
       if @representation.save

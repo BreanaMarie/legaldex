@@ -6,6 +6,7 @@ class LawcasesController < ApplicationController
 
   def show
     @lawcase = Lawcase.find_by_id(params[:id])
+    @current_user =current_user
     @assignments = Assignment.all
     @practices = Practice.all
     @handlings = Handling.all

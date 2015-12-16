@@ -8,7 +8,6 @@
     </div>
     <div class="row content">
       <div class="col-sm-4 ">
-
         <div>
           <h4><%= @lawcase.law_type  %> </h4>
           <h5>
@@ -23,7 +22,6 @@
                 <%end%>
               <% end %>
           </h5>
-
         </div>
        <!--  handling attorneys -->
         <div>
@@ -31,7 +29,7 @@
           <% @lawcase.handling.each do |user| %>
             <% user = User.find(user.user_id) %>
             <%= link_to user_path(user.id) do%>
-              <%= user.full_name %>
+              <%= user.full_name %><br>
             <%end%>
           <% end %>
         </div>
@@ -47,11 +45,19 @@
           <strong>firm internal billing number:</strong>
           <%= @lawcase.internal_number %>
         </div>
-       
+        <div>
+          <% for handling in @current_user.handlings.where(lawcase_id: @lawcase) %>
+            <h5>Since you are a Handler you may:</h5>
+              <%=link_to "Edit Case Information", edit_lawcase_path, class:"btn btn-info btn-xs" %>
+              <%=link_to "Add a new Party to the case", new_representation_path, class:"btn btn-info btn-xs" %>
+              <%= button_to "Stop handling this case", handling, class:" btn btn-danger btn-xs", method: :delete %>
+          <%end%>
+        </div>
+        <div>
         <br>
         <p><%= "Last updated: #{@lawcase.updated_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
-        <%=link_to "Edit case Information", edit_lawcase_path, class:"btn" %>
-      </div>
+        </div>
+    </div>
 
       <div class="col-sm-8">
       <h5>Case Summary</h5>

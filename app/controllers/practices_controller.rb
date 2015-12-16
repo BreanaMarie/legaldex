@@ -12,7 +12,7 @@ class PracticesController < ApplicationController
     practice_params = params.require(:practice).permit(:title)
     @practice = Practice.new(practice_params)
      if @practice.save
-     redirect_to "/" # <-- go to show
+     redirect_to @practice
      else
        render :new
      end

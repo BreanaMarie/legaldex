@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     @groups = Group.all
     @practices = Practice.all
+    @handlings = Handling.all
 
     render :show
   end
