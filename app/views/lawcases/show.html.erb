@@ -11,7 +11,18 @@
 
         <div>
           <h4><%= @lawcase.law_type  %> </h4>
-          <h5>Filed on: <%= @lawcase.filed %> </h5>
+          <h5>
+            Filed on: <%= @lawcase.filed %> 
+            <br>
+            Assigned to: <br> 
+              <% @lawcase.assignments.each do |practice| %>
+                <% practice = Practice.find(practice.practice_id) %>
+                <%= link_to practice_path(practice.id) do%>
+                  <%= practice.title %> group</br>
+                <%end%>
+              <% end %>
+          </h5>
+
         </div>
        <!--  handling attorneys -->
         <div>

@@ -4,7 +4,7 @@
     <%= form_for @group do |f| %>
       <%= f.label "All Practice Groups" %> </br>
           <%= f.collection_select :practice_id, @practices, :id, :title, include_blank: true %>
-        <%= f.submit "Add Practice", class:"btn close pull-right" %>
+        <%= f.submit "Add Practice", class:"btn btn-success pull-right" %>
 
     <% end %>
   </div>
