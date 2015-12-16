@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :practices
   resources :groups
   resources :experts
-  resources :cases
+  resources :lawcases
   resources :handlings
   resources :companies
   resources :representations

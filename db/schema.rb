@@ -11,23 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214222558) do
+ActiveRecord::Schema.define(version: 20151216041528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "cases", force: :cascade do |t|
-    t.string   "title"
-    t.string   "internal_number"
-    t.string   "case_number"
-    t.date     "filed"
-    t.string   "jurisdiction"
-    t.string   "law_type"
-    t.string   "case_status"
-    t.text     "summary"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -90,10 +77,23 @@ ActiveRecord::Schema.define(version: 20151214222558) do
   end
 
   create_table "handlings", force: :cascade do |t|
-    t.integer  "case_id"
+    t.integer  "lawcase_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "lawcases", force: :cascade do |t|
+    t.string   "title"
+    t.string   "internal_number"
+    t.string   "case_number"
+    t.date     "filed"
+    t.string   "jurisdiction"
+    t.string   "law_type"
+    t.string   "case_status"
+    t.text     "summary"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "practices", force: :cascade do |t|
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20151214222558) do
 
   create_table "representations", force: :cascade do |t|
     t.integer  "company_id"
-    t.integer  "case_id"
+    t.integer  "lawcase_id"
     t.integer  "firm_id"
     t.string   "attorney"
     t.string   "role"
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20151214222558) do
   end
 
   create_table "used_experts", force: :cascade do |t|
-    t.integer  "case_id"
+    t.integer  "lawcase_id"
     t.integer  "expert_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

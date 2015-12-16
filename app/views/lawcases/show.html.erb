@@ -2,7 +2,7 @@
   <section class='intro'>
     <div class="row banner">
       <div id="name_ribbon">
-         <h1><%= "#{@case.title}" %> </h1>
+         <h1><%= "#{@lawcase.title}" %> </h1>
       </div>
       
     </div>
@@ -10,12 +10,12 @@
       <div class="col-sm-4 ">
 
         <div>
-          <h4><%= @case.law_type  %> </h4>
-          <h5>Filed on: <%= @case.filed %> </h5>
+          <h4><%= @lawcase.law_type  %> </h4>
+          <h5>Filed on: <%= @lawcase.filed %> </h5>
         </div>
        <!--  handling attorneys -->
         <div>
-          <% @case.handling.each do |user| %>
+          <% @lawcase.handling.each do |user| %>
             <% user = User.find(user.user_id) %>
             <%= link_to user_path(user.id) do%>
               <%= user.full_name %>
@@ -24,21 +24,21 @@
         </div>
         <div>
           <p>
-            <%= @case.case_status %>
+            <%= @lawcase.case_status %>
             <br>
-            <%= @case.case_number %>
+            <%= @lawcase.case_number %>
           </p>
           <br>
-          <%= @case.internal_number %>
+          <%= @lawcase.internal_number %>
         </div>
        
         <br>
-        <p><%= "Last updated: #{@case.updated_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
-        <%=link_to "Edit case Information", edit_case_path, class:"btn" %>
+        <p><%= "Last updated: #{@lawcase.updated_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+        <%=link_to "Edit case Information", edit_lawcase_path, class:"btn" %>
       </div>
 
       <div class="col-sm-8">
-        <p><%= @case.summary %> </p>
+        <p><%= @lawcase.summary %> </p>
 
         
       </div>
@@ -52,7 +52,7 @@
         <td>Attorney</td>
         <td>Role</td>
       </tr>
-      <% @case.representations.each do |r| %>
+      <% @lawcase.representations.each do |r| %>
 
       <tr>
         <td>      
