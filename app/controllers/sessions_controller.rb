@@ -20,11 +20,11 @@ class SessionsController < ApplicationController
 
   def current_user
     @current_user ||= session[:user_id] && User.find_by_id(session[:user_id])
-  en
+  end
 
 
   def destroy
-      logout
+    logout
     redirect_to root_path 
   end
 end

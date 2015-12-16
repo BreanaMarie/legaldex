@@ -16,7 +16,9 @@
           <%end%>
         <% end %>
         <br>
+        <% if session[:user_id] == @user.id %>
         <%=link_to "Edit profile", edit_user_path, class:"btn" %>
+        <%end%>
       </div>
 
       <div class="col-sm-8">

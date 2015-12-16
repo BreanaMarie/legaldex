@@ -1,4 +1,8 @@
 class PracticesController < ApplicationController
+  def index
+    @practices = Practice.all.order(:title)
+  end
+    
   def new
     @practice = Practice.new
     render :new

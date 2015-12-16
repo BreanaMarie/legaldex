@@ -14,25 +14,16 @@
       <div>
         <% for group in @current_user.groups.where(practice_id: @practice) %>
           <h5>You are already a member of this group</h5>
-          <%= link_to group, :method => :delete do %>
-            <i class="glyphicon glyphicon-remove"></i>
-          <% end %>
+
+            <%= button_to "Remove Membership", group, class:" btn btn-danger pull-left", method: :delete %>
         <%end%>
         <br>
-        <% for group in Group.where(practice_id: @practice) %>
-        <%= group.user_id %>
-        <%= @current_user.id %>
-        <%= group.user_id == @current_user.id %>
-          <% if group.user_id.to_s == @current_user.id.to_s %>
-            <p> this is true <p>
-            <%= form_for @group do |f| %>
-              <%= f.hidden_field :practice_id, :value => @practice.id%>
-              <%= f.submit "Become Member", class:"btn btn-success pull-left" %>
-            <% end %>
-          <% else %>
-            <p>No button here <p>
+        <% if (show_button current_user, @practice) %>
+          <%= form_for @group do |f| %>
+            <%= f.hidden_field :practice_id, :value => @practice.id%>
+            <%= f.submit "Become Member", class:"btn btn-success pull-left" %>
           <% end %>
-        <% end %>
+        <%end%>
       </div>
 
     </div>
