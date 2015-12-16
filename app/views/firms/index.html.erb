@@ -1,2 +1,11 @@
-<h1>Firms#index</h1>
-<p>Find me in app/views/firms/index.html.erb</p>
+<section class="intro">
+  <% @firms.each do |firm|%>
+    <div>
+      <h2>
+        <%= link_to "#{firm.name}", firm_path(firm.id)%>  
+      </h2>
+      
+    </div>
+  <%end%>
+  
+</section>

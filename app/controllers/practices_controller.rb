@@ -22,8 +22,9 @@ class PracticesController < ApplicationController
     @practice = Practice.find_by_id(params[:id])
     @current_user = current_user
     @users = User.all
-    @groups= Group.all
+    @groups= Group.all.order(:first_name)
     @group= Group.new
+    @assignments = Assignment.all
 
   end
 
