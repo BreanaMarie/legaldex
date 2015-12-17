@@ -9,6 +9,7 @@ class Lawcase < ActiveRecord::Base
   has_many :firms, :through => :representations
   has_many :usedexperts
   has_many :experts, :through => :usedexperts
+  has_many :firms, :through => :usedexperts
   has_many :assignments
   has_many :practices, :through => :assignments
   

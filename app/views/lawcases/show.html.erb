@@ -108,6 +108,47 @@
       
     <% end %>
     </table>
+
+    <h3>List of Retained Experts </h3>
+      <table style="width:100%">
+        <tr>
+          <td></td>
+          <td>Expert</td>
+          <td>Firm Representation</td> 
+          <td>Specialty</td>
+          <td>Rating</td>
+        </tr>
+        <% @lawcase.usedexperts.each do |e| %>
+
+        <tr>
+          <td>
+            <% expert = Expert.find(e.expert_id) %>
+            <%= link_to expert_path(expert.id) do%>
+            <img src="<%= expert.image %>" >
+            <%end%>
+          </td>
+          <td>      
+            <% expert = Expert.find(e.expert_id) %>
+            <%= link_to expert_path(expert.id) do%>
+            <%= "#{expert.first_name}" "#{expert.last_name}" %>
+            <%end%>
+          </td>
+          <td>
+            <% firm = Firm.find(e.firm_id) %>
+            <%= link_to firm_path(firm.id) do%>
+            <p><%=firm.name %></p>
+            <%end%>
+          </td> 
+          <td>
+            <p><%= expert.title %></p>
+          </td>
+          <td>
+            <p>rating</p>
+          </td>
+        </tr>
+        
+      <% end %>
+      </table>
   </section>
 </div>
   

@@ -3,10 +3,11 @@ class UsedexpertsController < ApplicationController
     @usedexpert = Usedexpert.new
     @lawcases = Lawcase.all
     @experts = Expert.all
+    @firms = Firm.all
   end
 
   def create
-    usedexpert_params = params.require(:usedexpert).permit(:lawcase_id, :expert_id)
+    usedexpert_params = params.require(:usedexpert).permit(:lawcase_id, :expert_id, :firm_id)
     @usedexpert = Usedexpert.new(usedexpert_params)
     @lawcases = Lawcase.all
     @experts = Expert.all
