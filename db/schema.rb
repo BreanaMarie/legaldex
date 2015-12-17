@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20151217035931) do
   create_table "usedexperts", force: :cascade do |t|
     t.integer  "lawcase_id"
     t.integer  "expert_id"
+    t.integer  "firm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

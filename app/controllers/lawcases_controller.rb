@@ -11,6 +11,8 @@ class LawcasesController < ApplicationController
     @practices = Practice.all
     @handlings = Handling.all
     @representations = Representation.all
+    @experts = Expert.all
+    @usedexperts = Usedexpert.all
     render :show
   end
 

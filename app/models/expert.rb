@@ -4,6 +4,7 @@ class Expert < ActiveRecord::Base
 
   has_many :usedexperts
   has_many :lawcases, :through => :usedexperts
+  has_many :firms, :through => :usedexperts
 
   def experience 
     if time_in_field != nil
