@@ -19,6 +19,7 @@ Rails.application.config.assets.precompile += %w(
   practices.css
   representations.css
   sessions.css
+  usedexperts.css
   users.css
   welcome.css 
   )

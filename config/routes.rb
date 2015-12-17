@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'assignments/new'
-
-  get 'assignments/create'
-
   root to: "welcome#index"
 
   resources :users
@@ -20,5 +16,6 @@ Rails.application.routes.draw do
   resources :representations
   resources :firms
   resources :assignments
+  resources :usedexperts
   
 end
