@@ -1,5 +1,8 @@
 class CompaniesController < ApplicationController
   def index
+    @companies = Company.all
+    @representations = Representation.all
+    render :index
   end
 
   def show

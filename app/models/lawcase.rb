@@ -7,8 +7,8 @@ class Lawcase < ActiveRecord::Base
   has_many :representations
   has_many :companies, :through => :representations
   has_many :firms, :through => :representations
-  has_many :used_experts
-  has_many :experts, :through => :used_experts
+  has_many :usedexperts
+  has_many :experts, :through => :usedexperts
   has_many :assignments
   has_many :practices, :through => :assignments
   

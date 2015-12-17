@@ -2,8 +2,8 @@ class Expert < ActiveRecord::Base
   validates_length_of :first_name, :allow_blank => false
   validates_length_of :last_name, :allow_blank => false
 
-  has_many :used_experts
-  has_many :lawcases, :through => :used_experts
+  has_many :usedexperts
+  has_many :lawcases, :through => :usedexperts
 
   def experience 
     if time_in_field != nil

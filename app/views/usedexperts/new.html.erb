@@ -1,2 +1,13 @@
-<h1>Usedexperts#new</h1>
-<p>Find me in app/views/usedexperts/new.html.erb</p>
+<section class='intro new'>
+  <div class="col-sm-8 col-sm-offset-2 well">
+  <h2>Add an expert to a case:</h2>
+    <%= form_for @usedexpert do |f| %>
+      <%= f.label "All Cases" %> </br>
+        <%= f.collection_select :lawcase_id, @lawcases, :id, :title, include_blank: true %>
+      <%= f.label "All Experts" %> </br>
+        <%= f.collection_select :expert_id, @experts, :id, :first_name, include_blank: true %>
+      <%= f.submit "Add Practice", class:"btn btn-success pull-right" %>
+
+    <% end %>
+  </div>
+</section>
