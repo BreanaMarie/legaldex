@@ -1,11 +1,36 @@
 <section class="intro">
-  <% @lawcases.each do |lawcase|%>
-    <div>
-      <h2>
-        <%= link_to "#{lawcase.title}", lawcase_path(lawcase.id)%>  
-      </h2>
-      
-    </div>
-  <%end%>
+<h1>All the cases in your firms database</h1>
+<p>The more cases you have in your database the better the information you can collect. <br>
+.</p>
+
+  <div>
+   <table style="width:100%">
+     <tr>
+       <td>Case Name</td>
+       <td>Assigned to</td> 
+       <td>Date File</td>
+       <td>Type of Law</td>
+     </tr>
+     <% @lawcases.each do |c| %>
+
+     <tr>
+       <td>
+         <%= link_to "#{c.title}", lawcase_path(c.id)%>  
+       </td>
+       <td>      
+         <%=Assignment.where(:lawcase_id => c).count %> 
+       </td>
+       <td>
+         <%= c.filed %> 
+       </td> 
+       <td>
+         <p> <%= c.law_type %> </p>
+       </td>
+     </tr>
+     
+   <% end %>
+  </table>
+
+  </div>
   
 </section>
