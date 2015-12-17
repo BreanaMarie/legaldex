@@ -1,11 +1,36 @@
 <section class="intro">
-  <% @firms.each do |firm|%>
-    <div>
-      <h2>
-        <%= link_to "#{firm.name}", firm_path(firm.id)%>  
-      </h2>
-      
-    </div>
-  <%end%>
+<h1>All the firms your firm has seen</h1>
+<p>Getting to know who you are involved in a case with can be important, which is why adding lawfirms to your database offers a great insite to trends other firms have in the way they practice or apprach certin types of cases. <br>
+By setting up all the lawfirms involved in a case you not only get a service list that you can print out for your filings, but you can also see all the cases that firm has handled, who the experts were that they retained, and other information that can give you the edge when setting up your case plan and arguments.</p>
+
+  <div>
+   <table style="width:100%">
+     <tr>
+       <td>Group</td>
+       <td>Number of Cases</td> 
+       <td>Number of Experts</td>
+       <td>Office Locations</td>
+     </tr>
+     <% @firms.each do |f| %>
+
+     <tr>
+       <td>
+         <%= link_to "#{f.name}", firm_path(f.id)%>  
+       </td>
+       <td>      
+         <%=Representation.where(:firm_id => f).count %> 
+       </td>
+       <td>
+         <%=Usedexpert.where(:firm_id => f).count %> 
+       </td> 
+       <td>
+         <p> - </p>
+       </td>
+     </tr>
+     
+   <% end %>
+  </table>
+
+  </div>
   
 </section>
