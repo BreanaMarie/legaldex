@@ -17,8 +17,13 @@
        <td>
          <%= link_to "#{c.title}", lawcase_path(c.id)%>  
        </td>
-       <td>      
-         <%=Assignment.where(:lawcase_id => c).count %> 
+       <td>  
+         <% c.assignments.each do |practice| %>
+           <% practice = Practice.find(practice.practice_id) %>
+           <%= link_to practice_path(practice.id) do%>
+             <%= practice.title %> group</br>
+           <%end%>
+         <% end %>
        </td>
        <td>
          <%= c.filed %> 
@@ -27,7 +32,6 @@
          <p> <%= c.law_type %> </p>
        </td>
      </tr>
-     
    <% end %>
   </table>
 

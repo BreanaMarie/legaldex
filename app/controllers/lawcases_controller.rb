@@ -1,6 +1,7 @@
 class LawcasesController < ApplicationController
   def index
-    @lawcases = Lawcase.all
+    @lawcases = Lawcase.all.order(:filed).reverse_order
+    @assignments = Assignment.all
     render :index
   end
 

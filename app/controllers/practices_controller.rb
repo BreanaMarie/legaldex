@@ -26,6 +26,7 @@ class PracticesController < ApplicationController
     @groups= Group.all.order(:first_name)
     @group= Group.new
     @assignments = Assignment.all
+    @usedexperts = Usedexpert.all
 
   end
 

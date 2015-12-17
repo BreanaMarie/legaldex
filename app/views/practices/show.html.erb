@@ -29,19 +29,21 @@
     </div>
 
     <div class="col-sm-6">
-      <h2> Current offices</h2>
-      <!-- TODO add all office locations -->
+      <h2> Experts Used by this Practice Group</h2>
+   
     </div>
     
   </div>
-  
-</section>
-<section>
-  <h4>Cases being handled by the <%= "#{@practice.title}"%> group:</h4>
-    <% @practice.assignments.each do |lawcase| %>
-      <% lawcase = Lawcase.find(lawcase.lawcase_id) %>
-      <%= link_to lawcase_path(lawcase.id) do%>
-        <%= lawcase.title %> </br>
-      <%end%>
-    <% end %>
+  <br>
+  <br>
+  <br>
+  <div>
+    <h4>Cases being handled by the <%= "#{@practice.title}"%> group:</h4>
+      <% @practice.assignments.each do |lawcase| %>
+        <% lawcase = Lawcase.find(lawcase.lawcase_id) %>
+        <%= link_to lawcase_path(lawcase.id) do%>
+          <%= lawcase.title %> </br>
+        <%end%>
+      <% end %>
+  </div>
 </section>
