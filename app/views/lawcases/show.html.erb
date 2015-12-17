@@ -11,7 +11,7 @@
         <div>
           <h4><%= @lawcase.law_type  %> </h4>
           <h5>
-            Filed on: <%= @lawcase.filed %> 
+            Filed on: <br><%= @lawcase.filed.to_date.to_formatted_s(:long_ordinal) %> 
             <br>
             <br>
             Assigned to: <br> 
@@ -55,7 +55,8 @@
         </div>
         <div>
         <br>
-        <p><%= "Last updated: #{@lawcase.updated_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+        <p><%= "Last updated:"%> <br>
+        <%="#{@lawcase.updated_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
         </div>
     </div>
 

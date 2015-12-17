@@ -1,6 +1,7 @@
 class PracticesController < ApplicationController
   def index
     @practices = Practice.all.order(:title)
+
   end
     
   def new
