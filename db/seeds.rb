@@ -7,18 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'ffaker'
 
-# 10.times do 
-#   user_params = Hash.new
-#   user_params[:first_name] = FFaker::Name.first_name
-#   user_params[:last_name] = FFaker::Name.last_name
-#   user_params[:password]  = "12345"
-#   user_params[:email] = FFaker::Internet.email
-#   user_params[:image] = FFaker::Avatar.image
+10.times do 
+  user_params = Hash.new
+  user_params[:first_name] = FFaker::Name.first_name
+  user_params[:last_name] = FFaker::Name.last_name
+  user_params[:password]  = "12345"
+  user_params[:email] = FFaker::Internet.email
+  user_params[:image] = FFaker::Avatar.image
   
-#   # save the user
-#   new_user = User.create(user_params)
+  # save the user
+  new_user = User.create(user_params)
   
-# end
+end
 
 20.times do
   new_company = Company.new
