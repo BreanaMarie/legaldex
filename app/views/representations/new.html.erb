@@ -1,0 +1,30 @@
+<section class='intro new'>
+  <div class="col-sm-8 col-sm-offset-2 well">
+  <h2>Add a Party and their Representation to a case:</h2>
+    <%= form_for @representation do |f| %>
+      <%= f.label "All Companies" %> </br>
+        <%= f.collection_select :company_id, @companies, :id, :name, include_blank: true %>
+        <br>
+      <%= f.label "All Firms" %> <br>
+        <%= f.collection_select :firm_id, @firms, :id, :name, include_blank: true %>
+        <br>
+        <%= f.label "Attorney Representing the party if known" %> <br>
+          <%= f.text_field :attorney, placeholder: "Jane Doe" %>
+          <br>
+      <%= f.label "all cases" %> <br>  
+        <%= f.collection_select :lawcase_id, @lawcases, :id, :title, include_blank: true %>
+        <br>
+      <%= f.label :role %> 
+        <br>
+        <p>Plaintiff  <%= f.radio_button :role, "Plaintiff", :value => "Plaintiff" %> </p>
+        <p>Co-Plaintiff   <%= f.radio_button :role, "Co-Plaintiff", :value => "Co-Plaintiff" %> </p>
+        <p>Defendant  <%= f.radio_button :role, "Defendant", :value => "Defendant" %> </p>
+        <p>Co-Defendant   <%= f.radio_button :role, "Co-Defendant", :value => "Co-Defendant" %> </p>
+        <p>Third Party   <%= f.radio_button :role, "third party", :value => "thrid party" %></p> 
+        <p>Other   <%= f.radio_button :role, "other", :value => "other" %> </p>
+        <br>  
+      <%= f.submit "Add Representation", class:"btn btn-success pull-right" %>
+
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+<section class="intro">
+<h1>All the cases in your firms database</h1>
+<p>The more cases you have in your database the better the information you can collect. <br>
+.</p>
+
+  <div>
+   <table style="width:100%">
+     <tr>
+       <td>Case Name</td>
+       <td>Assigned to</td> 
+       <td>Date File</td>
+       <td>Type of Law</td>
+     </tr>
+     <% @lawcases.each do |c| %>
+
+     <tr>
+       <td>
+         <%= link_to "#{c.title}", lawcase_path(c.id)%>  
+       </td>
+       <td>  
+         <% c.assignments.each do |practice| %>
+           <% practice = Practice.find(practice.practice_id) %>
+           <%= link_to practice_path(practice.id) do%>
+             <%= practice.title %> group</br>
+           <%end%>
+         <% end %>
+       </td>
+       <td>
+         <%= c.filed %> 
+       </td> 
+       <td>
+         <p> <%= c.law_type %> </p>
+       </td>
+     </tr>
+   <% end %>
+  </table>
+
+  </div>
+  
+</section>

@@ -1,0 +1,67 @@
+//expert new
+section {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: absolute;
+	background-attachment: fixed;
+}
+
+.new {
+	margin-top: -1%;
+	margin-left: 1.5%;
+	background-image: url("expert.jpg");
+}
+
+// expert show
+.profile_pic img{
+	width: 230px;
+	min-height: 239px; 
+	max-height: 240px;
+	position: absolute;
+	border-radius: 50%;
+	margin-left: -12%;
+	overflow: hidden;
+
+
+}
+
+#name_ribbon{
+	background-color: #e6b700;
+	position: absolute;
+	height: 230px;
+	width: 80%;
+	float: left;
+	margin-left: 12%;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6b700+0,ffffff+79,ffffff+100,f7fbfc+100 */
+	background: rgb(230,183,0); /* Old browsers */
+	background: -moz-linear-gradient(left,  rgba(230,183,0,1) 0%, rgba(255,255,255,1) 79%, rgba(255,255,255,1) 100%, rgba(247,251,252,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  rgba(230,183,0,1) 0%,rgba(255,255,255,1) 79%,rgba(255,255,255,1) 100%,rgba(247,251,252,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  rgba(230,183,0,1) 0%,rgba(255,255,255,1) 79%,rgba(255,255,255,1) 100%,rgba(247,251,252,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6b700', endColorstr='#f7fbfc',GradientType=1 ); /* IE6-9 */
+
+	
+}
+
+#name_ribbon h1{
+	margin-left: 15% ;
+	font-size: 60px;
+	margin-top: 10%;
+}
+
+.banner{
+	height: 240px;
+}
+
+.content {
+	clear: both;
+}
+
+table {
+	width: 100%;
+}
+
+table img {
+	width: 100%;
+}
+
+

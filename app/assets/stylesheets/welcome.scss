@@ -1,0 +1,86 @@
+section {
+  width: 100%;
+  padding: 0 7%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  background-color: #278009;
+  height: 100vh;
+  
+  &:nth-of-type(2n) {
+    background-color: #ffffff;
+  }
+}
+
+.intro {
+  height: 100vh;
+  background-image: url('./marble.jpg');
+  background-repeat: none;
+  background-size: cover;
+}
+
+.content {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+
+  
+
+//section 1
+#name-banner{
+  background-color: #e6b700;
+  position: absolute;
+  margin-top: -70px;
+  height: 400px;
+  width: 90%;
+  -webkit-box-shadow: 0px 0px 5px 6px rgba(0, 0, 0, 0.4); 
+  -moz-box-shadow:    0px 0px 5px 6px rgba(0, 0, 0, 0.4);  
+  box-shadow:         0px 0px 5px 6px rgba(0, 0, 0, 0.4);
+  float: left;
+  margin-left: -17%;
+  margin-top: -400px;
+  padding-top: 150px;
+  z-index: 1000;
+  border-radius: 0% 0% 70% 70%;
+  text-align: center;
+
+
+}
+
+#name-banner h1{
+  font-size: 70px;
+
+}
+
+#banner-content {
+  vertical-align: text-bottom;
+
+}
+
+#splash {
+  background-color: #ffffff;
+  font-family: 'Bree', Serif;
+}
+
+
+
+#splash_content {
+  padding-top: 70px;
+
+}
+
+.blurred-edge img{
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+
+}
+.btn-primary {
+    box-shadow: 0 3px 0 0 #007299;
+    border-radius: 5px;
+}
+
+
+//section 2

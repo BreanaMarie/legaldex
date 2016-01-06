@@ -1,0 +1,30 @@
+//new user
+section {
+	clear:both;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: absolute;
+	background-attachment: fixed;
+}
+
+.new {
+	margin-top: -1%;
+	margin-left: 1.5%;
+	background-image: url("company.jpg");
+}
+
+
+//user profile
+.profile_pic .btn{
+  float:right;
+}
+
+.profile_pic img{
+	width: 230px;
+	max-height: 240px;
+	max-width: 100%;
+	border-radius: 50%;
+}
+
+
+

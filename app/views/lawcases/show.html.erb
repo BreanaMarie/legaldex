@@ -1,0 +1,156 @@
+<div class="container">
+  <section class='intro'>
+    <div class="row banner">
+      <div id="name_ribbon">
+         <h1><%= "#{@lawcase.title}" %> </h1>
+      </div>
+      
+    </div>
+    <div class="row content">
+      <div class="col-sm-4 ">
+        <div>
+          <h4><%= @lawcase.law_type  %> </h4>
+          <h5>
+            Filed on: <br><%= @lawcase.filed.to_date.to_formatted_s(:long_ordinal) %> 
+            <br>
+            <br>
+            Assigned to: <br> 
+              <% @lawcase.assignments.each do |practice| %>
+                <% practice = Practice.find(practice.practice_id) %>
+                <%= link_to practice_path(practice.id) do%>
+                  <%= practice.title %> group</br>
+                <%end%>
+              <% end %>
+          </h5>
+        </div>
+       <!--  handling attorneys -->
+        <div>
+        <h5>Currently handling the case:</h5>
+          <% @lawcase.handling.each do |user| %>
+            <% user = User.find(user.user_id) %>
+            <%= link_to user_path(user.id) do%>
+              <%= user.full_name %><br>
+            <%end%>
+          <% end %>
+        </div>
+        <br>
+        <div>
+          <p> <strong>case status:</strong>
+            <%= @lawcase.case_status %>
+            <br>
+            <strong>cout case number:</strong>
+            <%= @lawcase.case_number %>
+          </p>
+          <br>
+          <strong>firm internal billing number:</strong>
+          <%= @lawcase.internal_number %>
+        </div>
+        <div>
+          <% for handling in @current_user.handlings.where(lawcase_id: @lawcase) %>
+            <h5>Since you are a Handler you may:</h5>
+              <%=link_to "Edit Case Information", edit_lawcase_path, class:"btn btn-info btn-xs" %>
+              <%=link_to "Add a new Party to the case", new_representation_path, class:"btn btn-info btn-xs" %>
+              <%= button_to "Stop handling this case", handling, class:" btn btn-danger btn-xs", method: :delete %>
+          <%end%>
+        </div>
+        <div>
+        <br>
+        <p><%= "Last updated:"%> <br>
+        <%="#{@lawcase.updated_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+        </div>
+    </div>
+
+      <div class="col-sm-8">
+      <h5>Case Summary</h5>
+        <p><%= @lawcase.summary %> </p>
+
+        
+      </div>
+    </div>
+  </section>
+  <section>
+  <h3>List of Parties involved and their representations</h3>
+    <table style="width:100%">
+      <tr>
+        <td></td>
+        <td>Party</td>
+        <td>Firm Representation</td> 
+        <td>Attorney</td>
+        <td>Role</td>
+      </tr>
+      <% @lawcase.representations.each do |r| %>
+
+      <tr>
+        <td>
+          <% company = Company.find(r.company_id) %>
+          <%= link_to company_path(company.id) do%>
+          <img src="<%= company.image %>" >
+          <%end%>
+        </td>
+        <td>      
+          <% company = Company.find(r.company_id) %>
+          <%= link_to company_path(company.id) do%>
+          <%= company.name %>
+          <%end%>
+        </td>
+        <td>
+          <% firm = Firm.find(r.firm_id) %>
+          <%= link_to firm_path(firm.id) do%>
+          <p><%=firm.name %></p>
+          <%end%>
+        </td> 
+        <td>
+          <p><%= r.attorney %></p>
+        </td>
+        <td>
+          <p><%= r.role %></p>
+        </td>
+      </tr>
+      
+    <% end %>
+    </table>
+
+    <h3>List of Retained Experts </h3>
+      <table style="width:100%">
+        <tr>
+          <td></td>
+          <td>Expert</td>
+          <td>Firm Representation</td> 
+          <td>Specialty</td>
+          <td>Rating</td>
+        </tr>
+        <% @lawcase.usedexperts.each do |e| %>
+
+        <tr>
+          <td>
+            <% expert = Expert.find(e.expert_id) %>
+            <%= link_to expert_path(expert.id) do%>
+            <img src="<%= expert.image %>" >
+            <%end%>
+          </td>
+          <td>      
+            <% expert = Expert.find(e.expert_id) %>
+            <%= link_to expert_path(expert.id) do%>
+            <%= "#{expert.first_name}" "#{expert.last_name}" %>
+            <%end%>
+          </td>
+          <td>
+            <% firm = Firm.find(e.firm_id) %>
+            <%= link_to firm_path(firm.id) do%>
+            <p><%=firm.name %></p>
+            <%end%>
+          </td> 
+          <td>
+            <p><%= expert.title %></p>
+          </td>
+          <td>
+            <p>rating</p>
+          </td>
+        </tr>
+        
+      <% end %>
+      </table>
+  </section>
+</div>
+  
+

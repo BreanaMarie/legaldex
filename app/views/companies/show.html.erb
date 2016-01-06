@@ -1,0 +1,52 @@
+<div class="container">
+  <section class='intro'>
+    <div class="row banner">
+      <div id="name_ribbon">
+         <h1><%= "#{@company.name}" %> </h1>
+      </div>
+      
+    </div>
+    <div class="row content">
+      <div class="col-sm-8">
+      <h4>Company Profile</h4>
+        <p><%= @company.profile %> </p>
+      <br>
+      <h4>Cases involving <%= "#{@company.name}" %></h4>
+        <% @company.representations.each do |lawcase| %>
+          <% lawcase = Lawcase.find(lawcase.lawcase_id) %>
+          <%= link_to lawcase_path(lawcase.id) do%>
+            <%= lawcase.title %> </br>
+          <%end%>
+        <% end %>
+
+        
+      </div>
+      <div class="col-sm-4 ">
+
+        <div>
+          <img class= "img-responsive" src="<%= @company.image%>"> 
+          <h4><%= @company.industry  %> </h4>
+          <h5><%= @company.role %> </h5>
+        </div>
+        <div>
+          <h4>Contact Information:</h4>
+          <p>
+            <%= @company.address %>
+            <br>
+            <%= @company.city %> <%= @company.state %> <%= @company.zipcode %>
+          </p>
+          <br>
+          <%= @company.email %>
+        </div>
+       
+        <br>
+        <p><%= "Last updated: #{@company.updated_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+        <%=link_to "Edit Company Information", edit_company_path, class:"btn" %>
+      </div>
+
+    </div>
+  </section>
+</div>
+  
+
+

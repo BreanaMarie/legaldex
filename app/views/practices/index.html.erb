@@ -1,0 +1,32 @@
+<section class="intro">
+<h1>Snap shot of your Firm's practice groups:</h1>
+<p>Your firm has a number of differnt practice groups in each of your offices.  Below you can find a list off all the areas of law that is practiced in your firm.  Click on one of the groups below and see more about whats going on specificaly in that practice.</p>
+  <div>
+    <table style="width:100%">
+      <tr>
+        <td>Group</td>
+        <td>Number of Members</td> 
+        <td>Number of Cases</td>
+        <td>Office Locations</td>
+      </tr>
+      <% @practices.each do |p| %>
+
+      <tr>
+        <td>
+          <%= link_to "#{p.title}", practice_path(p.id)%>  
+        </td>
+        <td>      
+          <%=Group.where(:practice_id => p).count %> 
+        </td>
+        <td>
+          <%=Assignment.where(:practice_id => p).count %> 
+        </td> 
+        <td>
+          <p> - </p>
+        </td>
+      </tr>
+      
+    <% end %>
+    </table>
+  </div>
+</section> 

@@ -1,0 +1,47 @@
+<section id='splash'class='intro'>
+  <div id='welcome' class="container content">
+    <div class="row">
+
+      <div id='splash_content' class="col-sm-6">
+      <div id='name-banner' class="col-sm-4 hidden-xs">
+        <div id="banner-content">
+          <h1>Legaldex</h1>
+          <h3>your place for experts</h3>  
+        </div>
+      </div>
+        <h3>Find the expert you need quickly with confidence.</h3>
+        
+        <div>  
+          <% if session[:user_id] === nil %>
+            <%= button_to "Sign Up", new_user_path, class:"btn btn-default", method: :get %>
+            <p class="btn">Join the community and make an account</p>
+
+          <%end %>
+        </div>
+      </div>
+
+      <div class="col-sm-6 blurred-edge">
+        <%= image_tag ('witness.jpg'), class: 'image-responsive' %>
+        
+      </div>
+    </div>
+  </div> 
+</section> 
+
+<section>
+  <div class="container">
+  <h2>Higest rated experts in your area:</h2>
+    <div class="row ">  
+    
+    </div> 
+  </div> 
+</section> 
+
+<section>
+  <div class="container">
+  <h2>Higest rated experts in your practice:</h2>
+    <div class="row ">  
+    
+    </div> 
+  </div> 
+</section>  

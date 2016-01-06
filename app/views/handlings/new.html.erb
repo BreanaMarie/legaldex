@@ -1,0 +1,16 @@
+<section class='intro new'>
+  <div class="col-sm-8 col-sm-offset-2 well">
+  <h2>Add an attorney handling a case:</h2>
+    <%= form_for @handling do |f| %>
+      <%= f.label "All users" %> 
+      </br>
+      <%= f.collection_select :user_id, @users, :id, :full_name, include_blank: true %>
+      <br>
+      <%= f.label "all cases" %> 
+      <br>
+      <%= f.collection_select :lawcase_id, @lawcases, :id, :title, include_blank: true %>
+    <%= f.submit "Add to Case", class:"btn close pull-right" %>
+
+    <% end %>
+  </div>
+</section>

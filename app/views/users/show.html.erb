@@ -1,0 +1,39 @@
+<div class="container">
+  <section class='intro'>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="profile_pic">
+          <img src="<%= @user.image%>">
+          
+        </div>
+        <br> 
+        <h4><%= "#{@user.first_name} #{@user.last_name}"  %> </h4>
+        <br>
+        <p> Currently Assisting the following groups:</p>
+        <% @user.groups.each do |practice| %>
+          <% practice = Practice.find(practice.practice_id) %>
+          <%= link_to practice_path(practice.id) do%>
+            <%= practice.title %> <br>
+          <%end%>
+        <% end %>
+        <br>
+        <% if session[:user_id] == @user.id %>
+        <%=link_to "Edit profile", edit_user_path, class:"btn" %>
+        <%end%>
+      </div>
+
+      <div class="col-sm-8">
+      <h4>Cases <%= "#{@user.full_name}"%> is handling:</h4>
+        <% @user.handlings.each do |lawcase| %>
+          <% lawcase = Lawcase.find(lawcase.lawcase_id) %>
+          <%= link_to lawcase_path(lawcase.id) do%>
+            <%= lawcase.title %> </br>
+          <%end%>
+        <% end %>
+        
+      </div>
+    </div>
+  </section>
+</div>
+  
+

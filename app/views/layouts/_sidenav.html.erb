@@ -1,0 +1,44 @@
+<div id="side col-xs-2">
+  <div id="sidetext">
+    <% if session[:user_id] === nil %>
+      <h4>you must be a member to participate</h4>
+    <%else %>
+      <p>Create</p>
+      <%= link_to "New Expert", new_expert_path%>
+      <br>
+      <%= link_to "New Firm", new_firm_path%>
+      <br>
+      <%= link_to "New Company", new_company_path%>
+      <br>
+      <%= link_to "New Case", new_lawcase_path%>
+      <br>
+      <%= link_to "New Practice", new_practice_path%>
+      <br>
+      <br>
+      <p>View All</p>
+      <%= link_to "Practice Groups", practices_path%>
+      <br>
+      <%= link_to "All Cases", lawcases_path%>
+      <br>
+      <%= link_to "All Experts", experts_path%>
+      <br>
+      <%= link_to "All Companies", companies_path%>
+      <br>
+      <%= link_to "All Firms", firms_path%>
+      <br>
+      <br>
+      <p>Associations</p>
+      <%= link_to "Expert to Case", new_usedexpert_path%>
+      <br>
+      <%= link_to "Parties to Case", new_representation_path%>
+      <br>
+      <%= link_to "User to Case", new_handling_path%>
+      <br>
+      <%= link_to "User to Practice", new_group_path%>
+      <br>
+      <%= link_to "Practice to Case", new_assignment_path%>
+      <br>
+    <%end %>
+  </div>
+
+</div>

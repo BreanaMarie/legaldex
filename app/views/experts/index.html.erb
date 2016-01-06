@@ -1,0 +1,22 @@
+<section class="intro">
+<h1>All experts involved with your firms cases</h1>
+<p>Finding an expert can be difficlt and it can be even hard to know if an expert is any good when you have never worked with them.  Building up a database of experts not only helps you find an expert whoes specialty matches your needs, but you can also see the ratings from other attorney's in you firm</p>
+<hr>
+<div>
+  <table>
+    <% @experts.each do |expert|%>
+    <tr>
+      <td width="20%">
+        <img src="<%= expert.image %>" >
+      </td>
+      <td width="80%">
+        <h3><%= link_to "#{expert.first_name}" + " " + "#{expert.last_name}", expert_path(expert.id)%> </h3>
+        <p> <%= expert.bio %></p> 
+        <h5>Appears in <strong><%=Usedexpert.where(:expert_id => expert).count %> </strong> cases</h5>
+      </td>
+    </tr>
+    
+  <% end %>
+  </table>
+</div>
+</section>

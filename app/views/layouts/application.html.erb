@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Legaldex</title>
+  <!-- fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag params[:controller], 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%=render partial: "layouts/nav"%>
+<div class="row siderow">
+  <div id="sideNav" class="col-xs-2 siderow">
+    <%=render partial: "layouts/sidenav"%>
+  </div>
+  <div class="col-xs-10 siderow">
+    <%= yield %> 
+  </div>
+</div>
+
+</body>
+<footer>Breana Marie</footer>
+</html>
+

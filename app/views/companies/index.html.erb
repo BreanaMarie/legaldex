@@ -1,0 +1,22 @@
+<section class="intro">
+<h1>Companies</h1>
+<p>The addition of a company to the database plays a few very imporant roles for the firm.  For starters it helps identify all the players in the case page: who represents who and what kind of party they are and who was retained as an expert on their behalf. <br>
+Often times the firm will face a company multiple times, and each time more information can be gathered to help prepare cases that involve that company.  The more information gathered the better future case preperation can be.</p>
+  <div>
+    <table>
+      <% @companies.each do |company|%>
+      <tr>
+        <td width="20%">
+          <img src="<%= company.image %>" >
+        </td>
+        <td width="80%">
+          <h3><%= link_to "#{company.name}", company_path(company.id)%> </h3>
+          <p> <%= company.profile %></p> 
+          <h5>Appears in <strong><%=Representation.where(:company_id => company).count %> </strong> cases</h5>
+        </td>
+      </tr>
+      
+    <% end %>
+    </table>
+  </div>
+</section>
