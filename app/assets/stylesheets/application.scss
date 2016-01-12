@@ -97,6 +97,29 @@ section {
   padding-top: 2%;
 }
 
+//standard forms
+.field input{
+  color: #fff ;
+  font-size: 20px;
+  padding: 4px;
+  border-radius: 1px;
+  border-radius: 3px;
+}
+
+.collection_select{
+  
+}
+
+.collection {
+  font-size: 400%;
+  width: 100%;
+}
+
+label {
+  font-size: 15px;
+}
+
+
 //footer
 footer {
 	text-align: center;

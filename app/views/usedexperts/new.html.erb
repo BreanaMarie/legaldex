@@ -3,15 +3,22 @@
   <h2>Add an expert to a case:</h2>
     <%= form_for @usedexpert do |f| %>
       <%= f.label "All Cases" %> </br>
-        <%= f.collection_select :lawcase_id, @lawcases, :id, :title, include_blank: true %>
+        <%= f.collection_select :lawcase_id, @lawcases, :id, :title, {prompt: "Select a Case"}, {class: 'collection'} %>
+        <p>If you don't see your case please click here <%= link_to "add New Case", new_lawcase_path%></p>
       <br>
       <%= f.label "Find the firm that retained the expert" %> </br>
-        <%= f.collection_select :firm_id, @firms, :id, :name, include_blank: true %>
+        <%= f.collection_select :firm_id, @firms, :id, :name, {prompt: "Select a Firm"}, {class: 'collection'} %>
+        <p>You can add an expert to a case even if you don't have the firm thats retained them.  If the firm is not listed above, click here to <%= link_to "add New Firm", new_firm_path%></p>
       <br>
       <%= f.label "All Experts" %> </br>
-        <%= f.collection_select :expert_id, @experts, :id, :first_name, include_blank: true %>
-      <%= f.submit "Add Practice", class:"btn btn-success pull-right" %>
+        <%= f.collection_select :expert_id, @experts, :id, :first_name, {prompt: "Select an Expert"}, {class: 'collection'}%>
+        <p>If you don't see the expert listed above, please click here to <%= link_to "add New Expert", new_expert_path%></p>
+      <%= f.submit "Add Expert", class:"btn btn-success pull-right" %>
 
     <% end %>
   </div>
 </section>
+
+<!-- TODO:  remove links to add new * and replace with a form so user does not leave page.  Modal or embeded that appears through accordion  -->
+
+

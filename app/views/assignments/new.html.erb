@@ -3,12 +3,15 @@
   <h2>Assign a Case to a Practice Group:</h2>
     <%= form_for @assignment do |f| %>
       <%= f.label "All Practice Groups" %> <br>
-        <%= f.collection_select :practice_id, @practices, :id, :title, include_blank: true %>
+        <%= f.collection_select :practice_id, @practices, :id, :title, {prompt: "Select a Practice"}, {class: 'collection'} %>
+      <br>
       <br>
       <%= f.label "All Cases" %> <br>
-          <%= f.collection_select :lawcase_id, @lawcases, :id, :title, include_blank: true %>
+          <%= f.collection_select :lawcase_id, @lawcases, :id, :title, {prompt: "Select a Case"}, {class: 'collection'}  %>
       <%= f.submit "Add Assignment", class:"btn btn-success pull-right" %>
 
     <% end %>
   </div>
 </section>
+
+<!-- TODO the cases listed should only be ones that an attorney is handling -->

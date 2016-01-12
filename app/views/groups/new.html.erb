@@ -1,10 +1,12 @@
 <section class='intro new'>
   <div class="col-sm-8 col-sm-offset-2 well">
-  <h2>Become a member to a Practice Group:</h2>
+  <h2>Become a member of a Practice Group:</h2>
+  <br>
     <%= form_for @group do |f| %>
       <%= f.label "All Practice Groups" %> </br>
-          <%= f.collection_select :practice_id, @practices, :id, :title, include_blank: true %>
-        <%= f.submit "Add Practice", class:"btn btn-success pull-right" %>
+          <%= f.collection_select :practice_id, @practices, :id, :title, {prompt: "Select a Group"}, {class: 'collection'}  %>
+          <br>
+        <%= f.submit "Join Practice", class:"btn btn-success pull-right" %>
 
     <% end %>
   </div>

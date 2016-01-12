@@ -3,16 +3,20 @@
   <h2>Add a Party and their Representation to a case:</h2>
     <%= form_for @representation do |f| %>
       <%= f.label "All Companies" %> </br>
-        <%= f.collection_select :company_id, @companies, :id, :name, include_blank: true %>
+        <%= f.collection_select :company_id, @companies, :id, :name, {prompt: "Select a Company"}, {class: 'collection'} %>
+        <p>If you don't see the company please click here to <%= link_to "add New Company", new_company_path%></p>
         <br>
       <%= f.label "All Firms" %> <br>
-        <%= f.collection_select :firm_id, @firms, :id, :name, include_blank: true %>
+        <%= f.collection_select :firm_id, @firms, :id, :name, {prompt: "Select a Firm"}, {class: 'collection'} %>
+        <p>If you don't see the company please click here to <%= link_to "add New Firm", new_firm_path%></p>
         <br>
-        <%= f.label "Attorney Representing the party if known" %> <br>
+        <%= f.label "Attorney Representing Party" %> <br>
           <%= f.text_field :attorney, placeholder: "Jane Doe" %>
+          <p>This information is not required</p>
           <br>
       <%= f.label "all cases" %> <br>  
-        <%= f.collection_select :lawcase_id, @lawcases, :id, :title, include_blank: true %>
+        <%= f.collection_select :lawcase_id, @lawcases, :id, :title, {prompt: "Select a Case"}, {class: 'collection'} %>
+        <p>If you don't see the company please click here to <%= link_to "add New Case", new_lawcase_path%></p>
         <br>
       <%= f.label :role %> 
         <br>
@@ -28,3 +32,6 @@
     <% end %>
   </div>
 </section>
+
+<!-- TODO:  remove links to add new * and replace with a form so user does not leave page.  Modal or embeded that appears through accordion  -->
+
