@@ -1,16 +1,22 @@
 <section class='intro new'>
   <div class="col-sm-8 col-sm-offset-2 well">
-  <h2>Add an attorney handling a case:</h2>
+  <h2>Add an attorney to a case:</h2>
+  <p>Attorneys within the firm that have been assigned to handle a case on behalf of the firms client.</p>
     <%= form_for @handling do |f| %>
       <%= f.label "All users" %> 
       </br>
-      <%= f.collection_select :user_id, @users, :id, :full_name, include_blank: true %>
+      <%= f.collection_select :user_id, @users, :id, :full_name, {prompt: "Select an Attorney"}, {class: 'collection'} %>
+      <br>
       <br>
       <%= f.label "all cases" %> 
       <br>
-      <%= f.collection_select :lawcase_id, @lawcases, :id, :title, include_blank: true %>
-    <%= f.submit "Add to Case", class:"btn close pull-right" %>
+      <%= f.collection_select :lawcase_id, @lawcases, :id, :title, {prompt: "Select a Case"}, {class: 'collection'} %>
+      <p>If you don't see your case please click here <%= link_to "add New Case", new_lawcase_path%></p>
+    <%= f.submit "Add Attorney", class:"btn btn-success pull-right" %>
 
     <% end %>
   </div>
 </section>
+
+<!-- TODO limit the listings of cases to be for practice groups the user is signed up to handle 
+users should be limited to attorney status only-->
