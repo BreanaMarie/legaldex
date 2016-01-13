@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   resources :firms
   resources :assignments
   resources :usedexperts
+  resources :reviews
   
 end

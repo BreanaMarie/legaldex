@@ -1,0 +1,23 @@
+<section class='intro new'>
+  <div class="col-sm-8 col-sm-offset-2 well">
+  <h2>Review an Expert:</h2>
+  <br>
+    <%= form_for @review do |f| %>
+      <%= f.label "All Experts" %> </br>
+        <%= f.collection_select :expert_id, @experts, :id, :full_name, {prompt: "Select an Expert"}, {class: 'collection'}  %>
+        <br>
+        <%= f.label :rate %> 
+        <br>
+          <p>0 <%= f.radio_button :rate, "0", :value => 0 %> </p>
+          <p>1 <%= f.radio_button :rate, "1", :value => 1 %> </p>
+          <p>2 <%= f.radio_button :rate, "2", :value => 2 %> </p>
+          <p>3 <%= f.radio_button :rate, "3", :value => 3 %> </p>
+          <p>4 <%= f.radio_button :rate, "4", :value => 4 %> </p>
+          <p>5 <%= f.radio_button :rate, "5", :value => 5 %> </p> 
+          <br> 
+        <%= f.label "Write your review of this expert" %> <br>
+          <%= f.text_area :opinion, rows: 20, placeholder: "I liked working with this expert because...", class:'form-control'%>
+    <%= f.submit "Submit Review", class:"btn btn-success pull-right" %>
+    <% end %>
+  </div>
+</section>

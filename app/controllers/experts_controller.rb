@@ -1,6 +1,7 @@
 class ExpertsController < ApplicationController
   def index
     @experts = Expert.all
+    # @reviews = Review.all
   end
 
   def show
