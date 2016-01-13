@@ -5,6 +5,8 @@ class Expert < ActiveRecord::Base
   has_many :usedexperts
   has_many :lawcases, :through => :usedexperts
   has_many :firms, :through => :usedexperts
+  has_many :reviews
+  has_many :users, :through => :reviews
 
   def experience 
     if time_in_field != nil
@@ -12,5 +14,9 @@ class Expert < ActiveRecord::Base
       years = days.to_i/ 365
 
     end
+  end
+
+  def full_name 
+    "#{first_name} #{middle_name} #{last_name}"
   end
 end

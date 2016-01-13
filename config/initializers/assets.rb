@@ -18,6 +18,7 @@ Rails.application.config.assets.precompile += %w(
   lawcases.css
   practices.css
   representations.css
+  reviews.css
   sessions.css
   usedexperts.css
   users.css

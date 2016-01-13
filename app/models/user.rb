@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
     has_many :practices, :through => :groups
     has_many :handlings
     has_many :lawcases, :through => :handlings
+    has_many :reviews
+    has_many :experts, :through => :reviews
 
 
     user = User.new

@@ -5,7 +5,7 @@
         <div class="profile_pic">
           <img src="<%= @expert.image%>">  
         </div>
-         <h1><%= "#{@expert.first_name} #{@expert.last_name}"  %> </h1>
+         <h1><%= "#{@expert.full_name}"  %> </h1>
       </div>
       
     </div>
@@ -15,10 +15,12 @@
         <div>
         <h3>Expert</h3>
         <h4>
-          <%= "#{@expert.first_name} #{@expert.last_name}"  %> 
+          <%= "#{@expert.full_name}"  %> 
           <br>
           <%= @expert.company %>
         </h4>
+        <br>
+          <%= (average @expert)%>
         <br>
         <h3><%=@expert.title%></h3>
         <p>Time in the field: <strong><%="#{@expert.experience}" %></strong></p>
